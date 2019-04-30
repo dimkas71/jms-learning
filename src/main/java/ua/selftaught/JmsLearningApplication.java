@@ -13,14 +13,13 @@ import org.springframework.jms.core.JmsTemplate;
 @SpringBootApplication
 public class JmsLearningApplication implements CommandLineRunner {
 
-	private static final String QUEUE = "main queue";
+	public static final String QUEUE = "main queue";
 	
 	private static final Logger logger = LoggerFactory.getLogger(JmsLearningApplication.class);
 	
 	@Value("${spring.application.name}")
 	private String applicationName;
-	
-	
+		
 	private JmsTemplate jmsTemplate;
 	
 	@Autowired
@@ -36,14 +35,14 @@ public class JmsLearningApplication implements CommandLineRunner {
 
 	@JmsListener(destination = QUEUE)
 	public void onMessage(String message) {
-		logger.info("Message: " + message);
+		logger.info("A new message \"{}\" has been consumed!", message);
 	}
 	
 	
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("Hello {}", applicationName);
-		jmsTemplate.send(QUEUE, (session) -> session.createTextMessage("Hello for everyone"));
+		logger.info("Application: {} has been started!", applicationName);
+		jmsTemplate.send(QUEUE, (session) -> session.createTextMessage("Application is ready for processing messages"));
 	}
 
 }
