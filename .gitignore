@@ -30,6 +30,8 @@ HELP.md
 
 ### sub module ###
 jms-console-client/target/*
+jms-console-client/dependency-reduced-pom.xml
 jms-spring-client/target/*
+jms-spring-client/dependency-reduced-pom.xml
 target/
 
