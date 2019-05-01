@@ -29,5 +29,7 @@ HELP.md
 .vscode/
 
 ### sub module ###
-jms-console-client/target/
+jms-console-client/target/*
+jms-spring-client/target/*
+target/
 
