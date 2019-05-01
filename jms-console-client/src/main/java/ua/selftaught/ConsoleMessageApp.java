@@ -1,7 +1,5 @@
 package ua.selftaught;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Scanner;
 
 import javax.jms.JMSException;
@@ -10,7 +8,7 @@ public class ConsoleMessageApp {
 
 	private static final String QUEUE = "main queue";
 
-	public static void main(String[] args) throws JMSException, UnsupportedEncodingException {
+	public static void main(String[] args) throws JMSException {
 		
 
 		Producer p = new Producer();

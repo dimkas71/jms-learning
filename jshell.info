@@ -1,0 +1,17 @@
+how to produce messages from jshell with loading jar files
+
+1. Load jar files in jshell
+	/env --class-path /home/dimkas71/Downloads/activemq-all-5.15.9.jar:/home/dimkas71/Downloads/javax.jms-api-2.0.1.jar
+
+2. 
+	import org.apache.activemq.ActiveMQConnectionFactory;
+    import javax.jms.*;
+    ConnectionFactory cf = new ActiveMQConnectionFactory("admin", "admin", "tcp://localhost:61616/");
+    var connection = cf.createConnection();
+    var session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+    Destination d = session.createQueue("main queue");
+    var producer = session.createProducer(d);
+    TextMessage mess = session.createTextMessage("f and others");
+    producer.send(mess)
+
+
